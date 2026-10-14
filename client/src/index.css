@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  body { @apply bg-slate-950 text-slate-200 font-sans antialiased; }
+  :focus-visible { @apply outline-none ring-2 ring-indigo-400 ring-offset-2 ring-offset-slate-950; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-800 rounded-full; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-indigo-500 text-white hover:bg-indigo-400; }
+  .btn-success { @apply btn bg-emerald-500 text-slate-950 hover:bg-emerald-400; }
+  .btn-ghost { @apply btn border border-slate-700 text-slate-200 hover:bg-slate-800; }
+  .btn-danger { @apply btn text-rose-300 hover:bg-rose-500/10; }
+  .input { @apply w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 focus:border-indigo-400; }
+  .field-label { @apply mb-1.5 block text-sm font-medium text-slate-300; }
+}
+
+/* Styles for rendered product HTML previews (no typography plugin needed). */
+.copy-preview p { @apply mb-3 leading-relaxed; }
+.copy-preview ul { @apply mb-3 list-disc space-y-1 pl-5; }
+.copy-preview ol { @apply mb-3 list-decimal space-y-1 pl-5; }
+.copy-preview strong { @apply font-semibold text-white; }
+.copy-preview h3 { @apply mb-2 text-base font-semibold text-white; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .drawer-in { animation: drawer-in 0.22s ease-out; }
+  @keyframes drawer-in { from { transform: translateX(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+}
